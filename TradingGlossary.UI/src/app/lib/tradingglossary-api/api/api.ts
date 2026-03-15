@@ -1,0 +1,10 @@
+export * from './glossaryEntry-generated.service';
+import { GlossaryEntryGeneratedService } from './glossaryEntry-generated.service';
+export * from './glossaryEntry-generated.serviceInterface';
+export * from './glossaryLetter-generated.service';
+import { GlossaryLetterGeneratedService } from './glossaryLetter-generated.service';
+export * from './glossaryLetter-generated.serviceInterface';
+export * from './glossaryTag-generated.service';
+import { GlossaryTagGeneratedService } from './glossaryTag-generated.service';
+export * from './glossaryTag-generated.serviceInterface';
+export const APIS = [GlossaryEntryGeneratedService, GlossaryLetterGeneratedService, GlossaryTagGeneratedService];
