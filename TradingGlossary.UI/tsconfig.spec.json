@@ -9,7 +9,7 @@
     ]
   },
   "include": [
-    "TradingGlossary.UI/src/**/*.d.ts",
-    "TradingGlossary.UI/src/**/*.spec.ts"
+    "src/**/*.d.ts",
+    "src/**/*.spec.ts"
   ]
 }
