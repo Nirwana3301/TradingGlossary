@@ -1,0 +1,80 @@
+name: tradingglossarylocalservices
+
+services:
+
+  # --< portainer >----------------------------------------------------------------------------------------------------
+  portainer:
+    image: portainer/portainer-ce:${PORTAINER_ImageVersion}
+    container_name: portainer
+    hostname: portainer
+    domainname: local.tradingglossary.eu
+    restart: unless-stopped
+    ports:
+      - 8180:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+  # --< postgres + pgadmin >-------------------------------------------------------------------------------------------
+  postgres:
+    image: postgres:${POSTGRES_ImageVersion}
+    container_name: postgres
+    hostname: postgres
+    domainname: local.tradingglossary.eu
+    restart: unless-stopped
+    environment:
+      - PGUSER=${POSTGRES_User}
+      - POSTGRES_USER=${POSTGRES_User}
+      - POSTGRES_PASSWORD=${POSTGRES_Password}
+      - POSTGRES_DB=${POSTGRES_Db}
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker-data/postgres/init:/docker-entrypoint-initdb.d
+     #- ./docker-data/postgres/backup/${POSTGRES_Db}_dump.sql:/docker-entrypoint-initdb.d/${POSTGRES_Db}_dump.sql:ro
+    healthcheck:
+      # https://www.postgresql.org/docs/17/app-pg-isready.html
+      test: ["CMD-SHELL", "pg_isready --username ${POSTGRES_User} --dbname ${POSTGRES_Db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      portainer:
+        condition: service_started
+
+  postgresbackup:
+    image: postgres:${POSTGRES_ImageVersion}
+    container_name: postgresbackup
+    hostname: postgresbackup
+    domainname: local.tradingglossary.eu
+    restart: "no"
+   #profiles: ["backup"]
+    # https://www.postgresql.org/docs/17/app-pgdump.html
+    command: "pg_dump --dbname '${POSTGRES_Db}' --username '${POSTGRES_User}' --no-password --host 'postgres' --if-exists --clean --format plain --verbose --file './backup/${POSTGRES_Db}_dump.sql'"
+    environment:
+      - PGPASSWORD=${POSTGRES_Password}
+    volumes:
+      - ./docker-data/postgres/backup:/backup
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  pgadmin:
+    image: dpage/pgadmin4:${PGADMIN_ImageVersion}
+    container_name: pgadmin
+    hostname: pgadmin
+    domainname: local.tradingglossary.eu
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DefaultEmail}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DefaultPassword}
+      - PGADMIN_DISABLE_POSTFIX=true
+    ports:
+      - 8182:80
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./docker-data/pgadmin/servers.json:/pgadmin4/servers.json
+    depends_on:
+      postgres:
+        condition: service_healthy

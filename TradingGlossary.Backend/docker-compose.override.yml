@@ -1,0 +1,26 @@
+name: tradingglossarylocalservices
+
+services:
+  portainer:
+    networks:
+      tradingglossary-local-network:
+        aliases: [portainer]
+        ipv4_address: 172.28.0.11
+
+  postgres:
+    networks:
+      tradingglossary-local-network:
+        aliases: [postgres]
+        ipv4_address: 172.28.0.31
+
+  postgresbackup:
+    networks:
+      tradingglossary-local-network:
+        aliases: [postgresbackup]
+        ipv4_address: 172.28.0.32
+
+  pgadmin:
+    networks:
+      tradingglossary-local-network:
+        aliases: [pgadmin]
+        ipv4_address: 172.28.0.33

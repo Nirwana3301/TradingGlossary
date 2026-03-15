@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingGlossary.API", "TradingGlossary.API\TradingGlossary.API.csproj", "{4D7931F3-DC9C-4465-9875-E17575672284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingGlossary.Application", "TradingGlossary.Application\TradingGlossary.Application.csproj", "{3AA499FE-3EC7-4AC8-A595-A8797C02A247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingGlossary.Database", "TradingGlossary.Database\TradingGlossary.Database.csproj", "{1F4BBB15-8DF2-40BE-9706-7C6B83263F96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-compose.dcproj", "{3ECF20F3-2892-42D9-8711-6D1FFDBFC52B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D7931F3-DC9C-4465-9875-E17575672284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7931F3-DC9C-4465-9875-E17575672284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7931F3-DC9C-4465-9875-E17575672284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7931F3-DC9C-4465-9875-E17575672284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AA499FE-3EC7-4AC8-A595-A8797C02A247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA499FE-3EC7-4AC8-A595-A8797C02A247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA499FE-3EC7-4AC8-A595-A8797C02A247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA499FE-3EC7-4AC8-A595-A8797C02A247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F4BBB15-8DF2-40BE-9706-7C6B83263F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4BBB15-8DF2-40BE-9706-7C6B83263F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4BBB15-8DF2-40BE-9706-7C6B83263F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4BBB15-8DF2-40BE-9706-7C6B83263F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ECF20F3-2892-42D9-8711-6D1FFDBFC52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECF20F3-2892-42D9-8711-6D1FFDBFC52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECF20F3-2892-42D9-8711-6D1FFDBFC52B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECF20F3-2892-42D9-8711-6D1FFDBFC52B}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+EndGlobal

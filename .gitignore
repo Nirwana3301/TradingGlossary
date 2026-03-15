@@ -1,0 +1,66 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vs/
+.vscode/
+.idea/
+**/.idea/
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# .NET
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+publish/
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# Angular / Node
+**/node_modules/
+**/.angular/
+**/dist/
+**/coverage/
+**/.sass-cache/
+**/.eslintcache
+
+# Env / local config
+**/.env
+**/.env.*
+!**/.env.example
+appsettings.Development.json
+appsettings.Local.json
+**/appsettings.Development.json
+**/appsettings.Local.json
+
+# Docker local data
+**/docker-data/
+**/pgdata/
+**/postgres-data/
+
+# Temp
+*.cache
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock

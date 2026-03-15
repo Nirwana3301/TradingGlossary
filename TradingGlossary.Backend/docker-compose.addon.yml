@@ -1,0 +1,14 @@
+name: tradingglossarylocalservices
+  
+volumes:
+  portainer_data:
+  pgadmin_data:
+  postgres_data:
+
+networks:
+  tradingglossary-local-network:
+    name: tradingglossary-local-network
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.28.0.0/24"

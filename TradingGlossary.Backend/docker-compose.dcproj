@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <DockerPublishLocally>False</DockerPublishLocally>
+    <ProjectGuid>3ecf20f3-2892-42d9-8711-6d1ffdbfc52b</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="docker-compose.addon.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.services.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.yml" />
+    <None Include=".dockerignore" />
+    <None Include=".env" />
+    <None Include="docker-data\pgadmin\servers.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="docker-data\postgres\backup\" />
+    <Folder Include="docker-data\postgres\init\" />
+  </ItemGroup>
+</Project>

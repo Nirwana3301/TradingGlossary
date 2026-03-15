@@ -1,0 +1,5 @@
+name: tradingglossarylocalservices
+
+include:
+  - ./docker-compose.addon.yml
+  - ./docker-compose.services.yml
