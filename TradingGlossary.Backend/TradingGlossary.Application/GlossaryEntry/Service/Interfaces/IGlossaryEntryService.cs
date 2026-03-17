@@ -8,6 +8,8 @@ public interface IGlossaryEntryService
     
     Task<GlossaryEntryDto> GetGlossaryEntryById(int id);
     
+    Task<List<GlossaryEntryDto>> GetGlossaryEntriesByLetterId(int letterId);
+    
     GlossaryEntryDto CreateGlossaryEntry(CreateGlossaryEntryDto createGlossaryEntryDto);
     
     Task<GlossaryEntryDto> UpdateGlossaryEntry(int id, UpdateGlossaryEntryDto updateGlossaryEntryDto);

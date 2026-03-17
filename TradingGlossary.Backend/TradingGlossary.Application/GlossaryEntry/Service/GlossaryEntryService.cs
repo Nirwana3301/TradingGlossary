@@ -59,6 +59,23 @@ public class GlossaryEntryService : IGlossaryEntryService
         return glossaryEntry;
     }
 
+    public async Task<List<GlossaryEntryDto>> GetGlossaryEntriesByLetterId(int letterId)
+    {
+        var glossaryEntries = await _dbContext.GlossaryEntries
+            .Where(g => g.GlossaryLetterId == letterId)
+            .Select(g => new GlossaryEntryDto
+            {
+                Title = g.Title,
+                Description = g.Description,
+                CreatedAt = g.CreatedAt,
+                CreatedBy = g.CreatedBy,
+                ModifiedAt = g.ModifiedAt,
+                ModifiedBy = g.ModifiedBy
+            }).ToListAsync(_sessionInfo.CancellationToken);
+
+        return glossaryEntries;
+    }
+
     public GlossaryEntryDto CreateGlossaryEntry(CreateGlossaryEntryDto createGlossaryEntryDto)
     {
         var glossaryEntry = new Database.Model.GlossaryEntry

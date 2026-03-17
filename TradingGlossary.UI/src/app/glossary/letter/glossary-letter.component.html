@@ -6,4 +6,8 @@
   <div>
     {{ glossaryLetter().code | uppercase }} - isOpen
   </div>
+  @for (glossaryEntry of glossaryEntries(); track glossaryEntry)
+  {
+    <glossary-entry [glossaryEntry]="glossaryEntry"></glossary-entry>
+  }
 }

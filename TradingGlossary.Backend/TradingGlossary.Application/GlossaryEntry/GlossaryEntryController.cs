@@ -7,7 +7,7 @@ using TradingGlossary.Application.GlossaryEntry.Service.Interfaces;
 
 namespace TradingGlossary.Application.GlossaryEntry;
 
-[Authorize]
+// [Authorize]
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
@@ -49,6 +49,27 @@ public class GlossaryEntryController : ControllerBase
         {
             var transactionType = await _glossaryEntryService.GetGlossaryEntryById(id);
             return Ok(transactionType);
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpGet("letter/{letterId:int}")]
+    [ProducesResponseType(typeof(List<GlossaryEntryDto>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetGlossaryEntriesByLetterId([FromRoute] int letterId)
+    {
+        try
+        {
+            var glossaryEntries = await _glossaryEntryService.GetGlossaryEntriesByLetterId(letterId);
+            return Ok(glossaryEntries);
         }
         catch (KeyNotFoundException e)
         {

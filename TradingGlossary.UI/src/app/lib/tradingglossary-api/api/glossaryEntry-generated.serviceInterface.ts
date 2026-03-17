@@ -51,6 +51,14 @@ export interface GlossaryEntryGeneratedServiceInterface {
     /**
      * 
      * 
+     * @endpoint get /api/GlossaryEntry/letter/{letterId}
+     * @param letterId 
+     */
+    getGlossaryEntriesByLetterId(letterId: number, extraHttpRequestParams?: any): Observable<Array<GlossaryEntryDto>>;
+
+    /**
+     * 
+     * 
      * @endpoint get /api/GlossaryEntry/{id}
      * @param id 
      */
