@@ -7,7 +7,7 @@ using TradingGlossary.Application.GlossaryLetter.Service.Interfaces;
 
 namespace TradingGlossary.Application.GlossaryLetter;
 
-[Authorize]
+// [Authorize]
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]

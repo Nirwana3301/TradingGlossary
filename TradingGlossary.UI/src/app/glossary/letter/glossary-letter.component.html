@@ -1,0 +1,9 @@
+<div (click)="toggleIsOpen()">
+  {{ glossaryLetter().code | uppercase }}
+</div>
+@if(isOpen())
+{
+  <div>
+    {{ glossaryLetter().code | uppercase }} - isOpen
+  </div>
+}

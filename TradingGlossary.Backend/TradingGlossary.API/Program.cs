@@ -179,19 +179,19 @@ else
 }
 
 // Datenbank-Migration beim Start
-using (var scope = app.Services.CreateScope())
-{
-	var dbContext = scope.ServiceProvider.GetRequiredService<TradingGlossaryDbContext>();
-	try
-	{
-		dbContext.Database.Migrate();
-	}
-	catch (Exception ex)
-	{
-		var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-		logger.LogError(ex, "An error occurred while migrating the database.");
-	}
-}
+// using (var scope = app.Services.CreateScope())
+// {
+// 	var dbContext = scope.ServiceProvider.GetRequiredService<TradingGlossaryDbContext>();
+// 	try
+// 	{
+// 		dbContext.Database.Migrate();
+// 	}
+// 	catch (Exception ex)
+// 	{
+// 		var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+// 		logger.LogError(ex, "An error occurred while migrating the database.");
+// 	}
+// }
 
 // Gemeinsame Middleware und Endpunkte
 app.UseMiddleware<SessionInfoMiddleware>();

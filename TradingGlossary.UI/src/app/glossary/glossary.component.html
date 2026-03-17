@@ -1,0 +1,7 @@
+<div>
+  @for (letter of glossaryLetters(); track letter.id) {
+    <glossary-letter [glossaryLetter]="letter"></glossary-letter>
+  } @empty {
+      <p class="text-muted">Keine Einträge gefunden.</p>
+  }
+</div>
