@@ -1,13 +1,41 @@
-<div (click)="toggleIsOpen()">
-  {{ glossaryLetter().code | uppercase }}
-</div>
-@if(isOpen())
-{
-  <div>
-    {{ glossaryLetter().code | uppercase }} - isOpen
+<div class="group rounded-xl border border-neutral-800 bg-black transition-all duration-300 hover:border-indigo-500/30">
+
+  <div
+    class="flex cursor-pointer items-center justify-between p-5"
+    (click)="toggleIsOpen()"
+  >
+    <div class="flex items-center gap-4">
+      <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-neutral-900 border border-neutral-800 font-mono text-2xl font-black text-indigo-400 group-hover:border-indigo-500/50 group-hover:text-indigo-300 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] transition-all">
+        {{ glossaryLetter().code | uppercase }}
+      </span>
+      <span class="font-mono text-xs font-bold tracking-widest text-neutral-500 uppercase group-hover:text-neutral-400 transition-colors">
+        Directory
+      </span>
+    </div>
+
+    <svg
+      class="h-5 w-5 text-neutral-500 transition-transform duration-300"
+      [class.rotate-180]="isOpen()"
+      [class.text-indigo-400]="isOpen()"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
   </div>
-  @for (glossaryEntry of glossaryEntries(); track glossaryEntry)
-  {
-    <glossary-entry [glossaryEntry]="glossaryEntry"></glossary-entry>
+
+  @if(isOpen()) {
+    <div class="border-t border-neutral-800/50 bg-neutral-950/30 p-5">
+      <div class="grid gap-3">
+        @for (glossaryEntry of glossaryEntries(); track glossaryEntry) {
+          <glossary-entry [glossaryEntry]="glossaryEntry"></glossary-entry>
+        } @empty {
+          <div class="py-6 text-center font-mono text-xs tracking-widest text-neutral-600">
+            Awaiting Data...
+          </div>
+        }
+      </div>
+    </div>
   }
-}
+</div>

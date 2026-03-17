@@ -1,11 +1,16 @@
-<om-flickering-grid
-  class="grid-layer absolute inset-0 bg-black text-white"
-  [squareSize]="4"
-  [gridGap]="6"
-  [flickerChance]="0.3"
-  color="#4f46e5"
-  [maxOpacity]="0.15"
->
-  <router-outlet></router-outlet>
-</om-flickering-grid>
+<div class="relative min-h-screen bg-black text-white">
 
+  <om-flickering-grid
+    class="fixed inset-0 z-0 pointer-events-none"
+    [squareSize]="4"
+    [gridGap]="6"
+    [flickerChance]="0.3"
+    color="#4f46e5"
+    [maxOpacity]="0.15"
+  ></om-flickering-grid>
+
+  <main class="relative z-10 min-h-screen w-full">
+    <router-outlet></router-outlet>
+  </main>
+
+</div>
